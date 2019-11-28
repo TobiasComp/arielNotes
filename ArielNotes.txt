@@ -1,0 +1,329 @@
+Class #2
+	HW - 1. finsih the calculator
+		 2. make power of 
+		 3. console.log() every beginnning and end of function - 
+		 4. flex-blox - need to learn on our own
+		 5. 13 repositories + pages + docs
+		 6. form and calculator on git
+ideas
+	write functions in a try-catch and at the end print the function
+learninggit 
+	console.log()
+	console.error() // to print errors
+	css - 
+		1. input give id and then in a label write for the id
+			then when you click the label it goes to the form
+		2. div is the whole line
+		3. seperate words in a class with a -
+		4. in the console document.querySelector('div') selects the element
+			no space - means both
+			space - children
+		5. width inline-block then he can have a permanent width
+	keyboard shortcut - click on the file path and type cmd
+	Prompt - dir, echo, mkdir, cd, >, 
+	cli for git - git init
+				  git add . // add everything
+				  git commit -m "alan gever"
+				  git config --global user.name TobiasComp
+				  git config --global user.email tuvia1234@gmail.com
+				  git config remote add origin https://github.com/TobiasComp/ArielSecond.git
+				  git push -u origin master
+		only the files that are in the docs are viewed when you visit the website
+		credential manager/windows manager>git>remove to erase your stuff
+Class #3 - Thursday, October 31, 2019
+	Topics for the day: WebComponent, w3c, es 4/5/6
+	webCrawler -  
+	SPA - Single Page Application - only gets part of the page
+	CSS - had a lot of upgrades from to 2 to 3
+	shadow effects - 
+	w3schools - do the whole thing!! html/css
+	arrow functions:
+		old: function name(params)
+		new: name = x => x+2;
+			name = (x,y,z) => 
+	Web Component - new custom, reusable, encapsulated code (API)
+	Angular - is based on Web Components
+	syntax:
+	create a new component with styling(css) and markup(html)
+		<script>
+		1: const template = document.createElement('template');
+		2: template.innerHTML = `
+			<style>
+				.circle {
+					...
+				}
+			</style>
+			<div class="circle"></div>
+			`;
+			class Circle extends HTMLElement {
+				constructor() {
+					super();
+					this._shadowRoot = this.attachShaddow({mode: 'open'});
+					this._shadowRoot.appendChild(template.content.cloneNode(true);
+				}
+			}
+			widow.customElements.define("my-circle-button", Circle);
+		</script>
+	added custom attributes:
+		This means that we can have some custom attribute(<my-circle-button shuki="red">)
+		and we can define what the attribute will do!!!
+		within the constructor for the custom element(Circle) Do:
+		1: this.$circle = this._shadowRoot.querySelector('.circle');
+		2: this.attrs = {}
+		outside the class but within the script
+		3: static get observedAttributes() { return ['shuki', 'color']; } // this sets the program to wait on these changes
+		4:  attributeChangedCallback(name, oldVal, newVal) {
+				console.log(`att ${name} change from ${oldVal} to ${newVal}`)
+				this.attrs[name] = newVal;
+				this.render();
+			}
+		5:  render() {
+				let bg = this.attrs.shuki;
+				this.$circle.style.background = bg;
+            }
+	add events outside the function: 
+		adding functions (i.e. behaviors) to our custom elements
+		1: this.addEventListener('click',() => {
+                console.log('clicked a circle');
+                this.dispatchEvent(
+                    new CustomEvent('shuki2', {
+                        detail: 'Hello from within the Custom Element',
+                    })
+                );
+                
+            });
+		note: the above also adds a custom event which then can be accessed outside of the custom element with the new 
+			name that it was called. (Needs explanation what the benefit of this is since you anyways can create a listener 
+			that listens to the event.
+	Summary: Today we learned:
+						1: create custom elements that have (html,css, and js)
+						2: how to create in those elements custom attributes
+
+Class #4 - Sunday November 3,2019
+	HW - 1. flexbox do all the examples
+		 2. w3
+		 3. mix
+		 4. https://bresleveloper.github.io/db/travel.html
+			1. code, nesiah place, price
+			2. name, id, code, num of passengers
+				button with picture of personage
+			3. travels: number trip, name, person id, dest.,num. passengers, total
+			4. name, button find, 
+				num. of passengers
+		5. form nice
+		6. on form of person total cost for him
+		7. find form that has a dropdown with all the possible destinations
+			and tells me the orders from this destinations
+		8. 
+	<iframe> - link inside the site to see another site
+	FlexBox - (I need to learn css selectors)
+		blue - content of the box
+		green - padding - part of the element
+		orange - margin - not part of the element
+		responsive - 
+	selectors - 
+		document.querySelectorAll('img');
+		document.querySelectorAll('img a'); both of them
+		document.querySelectorAll('img > div > img'); direct children
+		document.querySelectorAll('');
+		tag#. is the order that we need to do
+		.cls1.cls2 = both cls1 and cls2
+		.cls1 .cls2 = cls2 as a child of cls1(not neccesarily direct)
+		p.intro = p's wit intro class
+		div, p = both classes
+		div > p = p with direct parent div
+		div + p = p's immediately after div not children
+Class #5 - Render Engine
+	create a function that receives a template and an object and 
+	figures out the fields and automatically fills the table
+Class #6 - TypeScript
+	need to bench
+	2 ways to get wround this binding problem:
+		1: setInterval(this.setTime.bind(this),1000)
+		2: setInterval(()=>this.setTime(),1000)
+	Angular:
+		made up of components
+		attribute: 
+			In the ts file:
+				@Input () city:string;
+				add in import with the word Input
+				@Input () bg:string;
+				Then in the html tag - <div class="blah {{bg}}"> // this creates a new class with the bg string
+		new project - 
+			ng new appname
+				answer no to questions asked
+			dir
+			cd appname
+			code . // opens vstudio code
+			ctrl ` // opens the terminal
+			ng generate component componentName
+			ng serve --open // opens a local-server
+			// you can cancel the auto-save
+Class #7 
+	Final Project: Portal
+	Angular - tashtit for webcomponents - for spa -
+		Templates
+Class #8
+	2 way binding is the ability to create my own attributes and events
+	input - is what can be used within the component tag
+	output - is what I'm throwing to the parent element
+	Dependency Injection:
+	GitHub commands;
+		ng build : folder dist is created
+		index.html - change the base href to the git file
+		ng build --prod : same except that it doesn't have the mapping(??)
+		put the new dist stuff inside the docs folder
+		git clone pathofrepository
+		git pull : gets this computer up to date with the one on the internet
+	Adding Http requests:
+		1. in app.module.ts - add an httpModule and an http import
+		2. make a beast service
+		3. make a raw file with the information
+		4. make a beast module
+Class #9
+	synchronous - execution waits for other things to execute
+	asynchronous - execution happens at the same time
+Class #10
+	[(ngModel)] = "user"
+	remember to add formsmodule in app.module
+	`` can enter in ${expression}
+	RESTS API Design
+		? - after here starts to do in the address
+			ex. ?id=1&id=2&id=3
+				?filter ge
+	position: absolute;
+		nothing - fathers 00
+		00 - beginnning of the page
+		abba relative - stops there
+	overflow: scroll;
+Class #10 - Css
+	Transition 
+	Transform
+	Animation
+	HW - do it with transition
+	posts - with comments with some sort of styling
+	users - 3 buttons under each user
+	todos - all, mine, or someone else (with a select dropdown)
+	albums - only the names of the albums with a connection to the photos
+piping routing directive and rxjs
+|Class #11 -
+	#thingname - is like an id in angular - then can be refernced in other tags without the
+		# - 
+	Object.assign({}, name:name)
+	
+	constructor - all the components are created simultaneaously, fields, and methods
+	ngOnChanges - to listen to changes in the properties, only when there is an entirely new Object
+	*ngOnChanges - 
+	ngOnInit - starts the component 
+	ngDoCheck - when there is a change to fields checks that everything is the same
+	ngAfterContentInit - after he knows what is going to be rendered(which tags) - when there are
+		external changes to the view
+	ngAfterContentChecked - after there are changes with the content of the tags(in-between the tags) 
+	ngAfterViewInit - happens 1 when we show the html
+	ngAfterViewChecked - the html is ready
+	onDestroy - when the component is destroyed
+	Routing - 
+		1) When creating the application choose with Angular Routing
+			This creates the app-routing.module.ts file that has the 
+			place to put in routes. 
+		2) In order to use this file you need to fill in the designated paths and 
+			make imports for the components that are linked with specific paths
+		3) The place where the rouer will be displayed is in the <router-outlet> tag
+		4) A link is made by giving the field RouterLink='pathname' to a tag
+		5) path options:
+			1) data:{title}
+				this can be accessed in the ts file with the ActivatedRoute service by
+				subscribing to the service and the data.title will give you the information
+			2) guards - these are used to lock certain routes:
+				1) create a service (services\guards\canIce)
+					in the service implement the canActivate interface that returns true or false
+				2) in app-routing module:
+					{path,component, canActivate:[canIce]}
+			   super guard - 
+				1) create a router service
+				2) register it in the app module
+				3) in the service listen to the events of the router and 
+					anytime I try to change the route the service redirects to the default
+					
+			3) using parameters in the route (example: users\4):
+				1) in the path:
+					path: 'users\:id' // this allows for a parameter after the user route
+				2) in the ts file:
+					activatedRoute.params.subscribe(data => data.id)
+				
+
+Class #12 - 
+
+	CONT. ROUTING
+		6) children - 
+			1) in the app-routing file add the children array, members of the array are the children routes
+			2) then you can add another router-outlet in the parent route
+			3) the links in the parent page need to link to the proper path:
+				[routerLink]="./"
+				
+	MATERIAL DESIGN
+		goto angular material and click on get started and follow the instructions
+		ng add @angular\material // from the cli and it will add the module to the node_modules file
+		choose a color theme(ng8+)
+		y on everything 
+		goto components and find an example and open in blitz
+		in the material-module file copy and paste it in the 'module' folder - you need to create it in the project and do it 
+		import in app module file and use in imports
+		usage: see 'comps/mat/'
+		::ng-deep - css from the parent c on the c child 
+		colors: warn, primary, and accent
+		HW - go over tons of stuff!!!
+		Schematic - 
+			ng g @angular\material:address-form comps\mat\schematic-form
+			HW component schematics
+	
+	AVRATECH - RECRUITMENT PLAN
+		1) DevOps - automation testing - Python	
+			a lot of different things and  put them together
+		2) Cyber - Python - risk assesment and penetration testing	NSO - virusus, have to learn linux, 
+			hungering and thirsty, and can take it apart
+		3) Embedded - speak directly to the sensors,
+			touch everything from the bottom
+		4) Web - Angular, 
+			end product
+		5) Mobile - Android, IOS, Flutter(similar to web)
+			end product
+			
+	PIPING - Used to transform information
+		1) ng g pipe comps/dirs/my-pipe
+		2) Create a new component and a new pipe
+		3) implement the transform function that does the action and returns 
+		4) in any component {{ p.birthYear | yearToAge }}
+	COMPONENT is used for HTML - 
+	DIRECTIVE - do things in the html
+		attribute directive - without a *, ngModel, ngClass, ngValue
+		structural directive - *, for, if, 
+		component directive - 
+	PIPE - transform the information in the interpolation
+	PROVIDERS - Services - manage data
+	Directives - 
+		1) ng g directive path
+		2) in the contructor get the elementRef
+			this.el = elementRef
+		3) This is the event HostListener - 
+	2 pipes and 2 directives
+	
+		
+		
+	
+		
+		
+	
+					
+	
+		
+
+
+
+	
+			
+	
+	
+
+	
+				  
